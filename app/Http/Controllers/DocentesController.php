@@ -27,8 +27,7 @@ class DocentesController extends Controller
 
     public function store(DocenteRequest $request)
     {
-        dd($request->all());
-    	$docente = new Docente($request->all());
+        $docente = new Docente($request->all());
     	$docente->save();
 
     	return redirect()->route('docente.index');
@@ -38,7 +37,6 @@ class DocentesController extends Controller
     {
     	$docente = Docente::where('idDocente',$idDocente)->first();
     	$docente->delete();
-    	//Flash::error('Se elimino papu');
     	return redirect()->route('docente.index');
     }
 

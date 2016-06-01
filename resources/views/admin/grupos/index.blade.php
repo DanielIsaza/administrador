@@ -4,7 +4,7 @@
 
 @section('content')
 	<script>
-	var espaciosAcademicos = null;
+		var espaciosAcademicos = null;
 		$(document).ready(function()
 		{
 			$("select[name=idPlanEstudios]").change(function()
@@ -38,10 +38,11 @@
 				$.get("{{ url('grupo') }}",
 				{ espacio:$(this).val() },
 				function(data){		
+					$("tBody[name=tabla]").empty();
 					$.each(data,function(key,element)
 					{
-						var a = "<tr><td>"+ element +"</td><td><a href="+"{{ route('grupos.edit', '"+key+"') }}"+" class='btn btn-warning'>";
-						$("tBody[name=tabla]").append(a+"<span class='glyphicon glyphicon-edit'>Editar</span></a></td><td><a href='#' onClick='return confirm()' class='btn btn-danger'><span class='glyphicon glyphicon-edit'>Eliminar</span></a></td></tr>");
+						$("tBody[name=tabla]").append(
+							"<tr><td>"+ element +'</td><td><a href="/grupos/'+key+'/edit" class="btn btn-warning">'+"<span class='glyphicon glyphicon-edit'>Editar</span></a></td><td><a href="+"grupos/"+key+"/destroy"+" onClick='return confirm('¿Seguro?')' class='btn btn-danger'><span class='glyphicon glyphicon-edit'>Eliminar</span></a></td></tr>");
 					});
 
 				});
@@ -52,13 +53,14 @@
 	<a href="{{ route('grupos.create')}}" class="btn btn-success">Ingresar Grupos</a> <br>
 	<br>
 	<div class="form-group">
-
 		{!! Form::label('name','Plan de estudios') !!}
-		{!! Form::select('idPlanEstudios',$array['planes'],null,['class'=> 'form-control','placeholder'=>'Seleccione una opción','required']) !!}
-
+		{!! Form::select('idPlanEstudios',$planes,null,['class'=> 'form-control','placeholder'=>'Seleccione una opción','required']) !!}
+	</div>
+	<div class="form-group">
 		{!! Form::label('name','Semestre') !!}
 		{!! Form::select('idSemestre',[""],null,['class'=> 'form-control','placeholder'=>'Seleccione una opción','required']) !!}
-
+	</div>
+	<div class="form-group">
 		{!! Form::label('name','Espacio Académico') !!}
 		{!! Form::select('idEspacioAcademico',[""],null,['class'=> 'form-control','placeholder'=>'Seleccione una opción','required']) !!}
 	</div>

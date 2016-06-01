@@ -13,9 +13,7 @@ class GrupoController extends Controller
     public function index()
 	{
 		$planes = PlanEstudio::pluck('nombrePlanEstudio','idPlanEstudio');
-    	$espacios = null;
-    	$array = array('planes'=>$planes,'espacios'=>$espacios);
-		return view('admin.grupos.index')->with('array',$array);
+		return view('admin.grupos.index')->with('planes',$planes);
 	}
 	public function store()
 	{
@@ -23,6 +21,7 @@ class GrupoController extends Controller
 	}
 	public function create()
 	{
-		return view('admin.grupos.create');
+		$planes = PlanEstudio::pluck('nombrePlanEstudio','idPlanEstudio');
+		return view('admin.grupos.create')->with('planes',$planes);
 	}
 }

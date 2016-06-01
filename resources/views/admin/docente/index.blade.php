@@ -24,7 +24,7 @@
 				<td>{{ $doc->cedulaDocente }}</td>
 				<td>{{ $doc->nombreDocente }}</td>
 				<td>{{ $doc->correoElectronico }}</td>
-				<td><a href="{{ route('docente.edit', $doc->idDocente) }}" class="btn btn-warning"><span class="glyphicon glyphicon-edit">Editar</span> </a> <a href="{{ route('admin.docente.destroy', $doc->idDocente) }}" onClick="return confirm('¿Seguro papu?')" class="btn btn-danger"><span class="glyphicon glyphicon-remove">Eliminar</span></a></td>
+				<td><a href="{{ route('docente.edit', $doc->idDocente) }}" class="btn btn-warning"><span class="glyphicon glyphicon-edit">Editar</span> </a> <a href="{{ route('admin.docente.destroy', $doc->idDocente) }}" onClick="return confirm('¿Seguro?')" class="btn btn-danger"><span class="glyphicon glyphicon-remove">Eliminar</span></a></td>
 			</tr>
 			@endforeach
 		</tbody>

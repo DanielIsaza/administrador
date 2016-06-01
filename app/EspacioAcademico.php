@@ -8,6 +8,7 @@ class EspacioAcademico extends Model
 {
     //
     protected $table = "espacioacademico";
+    protected $primaryKey = 'idEspacioAcademico';
     protected $filleable = ['idEspacioAcademico','nombre','Semestre_idSemestre'];
     public $timestamps = false;
     /**

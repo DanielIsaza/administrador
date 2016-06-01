@@ -16,20 +16,13 @@ class EspaciosAcademicosController extends Controller
     public function index()
     {
     	$planes = PlanEstudio::pluck('nombrePlanEstudio','idPlanEstudio');
-    	$espacios = null;
-    	$array = array('planes'=>$planes,'espacios'=>$espacios);
-		return view('admin.espaciosAcademicos.index')->with('array',$array);
+		return view('admin.espaciosAcademicos.index')->with('planes',$planes);
     }
-    /**
-    * metodo que lista los espacios academicos del semestre seleccionado
-    */
-    public function lista($id)
+    
+    public function create()
     {
-    	$planes = PlanEstudio::pluck('nombrePlanEstudio','idPlanEstudio');
-    	$espacios = EspacioAcademico::where('Semestre_idSemestre',$id)->pluck('nombre','idEspacioAcademico','Semestre_idSemestre');
-    	$array = array('planes'=>$planes,'espacios'=>$espacios);
-    	dd("nunca");
-		return view('admin.espaciosAcademicos.lista')->with('array',$array);
+        $planes = PlanEstudio::pluck('nombrePlanEstudio','idPlanEstudio');
+        return view('admin.espaciosAcademicos.create')->with('planes',$planes);
     }
 
     public function edit ($id)
@@ -38,8 +31,31 @@ class EspaciosAcademicosController extends Controller
         return view('admin.espaciosAcademicos.edit')->with('espacioAcademico',$espacioAcademico);
     }
 
-    public function update($id)
+    public function update(Request $request,$id)
     {
+        $espacioAcademico = EspacioAcademico::where('idEspacioAcademico',$id)->first();
+        $espacioAcademico->nombre = $request->nombre;
+        $espacioAcademico->save();
+        return redirect()->route('espaciosAcademicos.index');
+    }
 
+    public function destroy($id)
+    {
+        $espacioAcademico = EspacioAcademico::where('idEspacioAcademico',$id)->first();
+        $espacioAcademico->delete();
+        //Flash::error('Se elimino papu');
+        return redirect()->route('espaciosAcademicos.index');
+    }
+
+    public function store(Request $request)
+    {
+        $espacioAcademico = new EspacioAcademico();
+        $espacioAcademico->nombre = $request->nombre;
+        $espacioAcademico->Semestre_idSemestre = $request->idSemestre;
+
+        $espacioAcademico->save();
+
+        $planes = PlanEstudio::pluck('nombrePlanEstudio','idPlanEstudio');
+        return view('admin.espaciosAcademicos.index')->with('planes',$planes);
     }
 }

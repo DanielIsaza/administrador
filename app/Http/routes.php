@@ -54,11 +54,12 @@ Route::group([''],function() {
 
 Route::group([''],function() {
 	Route::resource('espaciosAcademicos','EspaciosAcademicosController');
-	Route::get('EspaciosAcademicos/{id}/destroy',[
+	Route::get('espaciosAcademicos/{id}/destroy',[
 		'uses' => 'EspaciosAcademicosController@destroy',
 		'as' => 'admin.espaciosAcademicos.destroy'
 		]);
 });
+Route::get('activar',['as'=>'activar']);
 /**
 * Toma el id de un plan de estudios y retorna los semestres de este
 */

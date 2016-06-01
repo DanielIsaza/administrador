@@ -10,9 +10,7 @@ class Docente extends Model
 	public $timestamps = false;
 	protected $table = "docente";
 	protected $fillable = ['idDocente','cedulaDocente','nombreDocente','correoElectronico','Programa_idPrograma'];
-	/**
-	*
-	*/
+
 	public function grupo()
 	{
 		return $this->hasMany('App\grupo');

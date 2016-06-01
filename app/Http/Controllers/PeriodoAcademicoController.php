@@ -49,7 +49,6 @@ class PeriodoAcademicoController extends Controller
     	$periodo = PeriodoAcademico::find($id);
     	$periodo->id = $request->id;
     	$periodo->periodo = $request->periodo;
-    	//$periodo->fill($request->all());
     	$periodo->save();
     	return redirect()->route('periodoAcademico.index');
     }

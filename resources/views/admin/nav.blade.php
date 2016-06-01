@@ -29,7 +29,7 @@
           <ul class="dropdown-menu">
           <li ><a href="{{ route('docente.index') }}">Acta Socialización</a></li> 
           <li ><a href="{{ route('docente.index') }}">Acta Concertación</a> </li> 
-          <li> <a href="">Activar acta</a>
+          <li> <a href="#">Activar acta</a>
           </ul>
         </li>
     </ul>
