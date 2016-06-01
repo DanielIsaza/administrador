@@ -59,7 +59,9 @@ Route::group([''],function() {
 		'as' => 'admin.espaciosAcademicos.destroy'
 		]);
 });
-Route::get('activar',['as'=>'activar']);
+Route::group([''], function(){
+	Route::resource('activar','ActaMostrarController');
+});
 /**
 * Toma el id de un plan de estudios y retorna los semestres de este
 */
