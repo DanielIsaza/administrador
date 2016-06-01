@@ -34,8 +34,12 @@ class EspaciosAcademicosController extends Controller
 
     public function edit ($id)
     {
-        dd("ha"+$id);
-        //$periodo = PeriodoAcademico::where('id',$id)->first();
-        //return view('admin.periodoAcademico.edit')->with('periodo',$periodo);
+        $espacioAcademico = EspacioAcademico::where('idEspacioAcademico',$id)->first();
+        return view('admin.espaciosAcademicos.edit')->with('espacioAcademico',$espacioAcademico);
+    }
+
+    public function update($id)
+    {
+
     }
 }
