@@ -27,8 +27,8 @@
         <li>
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Actas<span class="caret"></span></a>
           <ul class="dropdown-menu">
-          <li ><a href="{{ route('docente.index') }}">Acta Socialización</a></li> 
-          <li ><a href="{{ route('docente.index') }}">Acta Concertación</a> </li> 
+          <li ><a href="{{ route('actaSocializacion.index') }}">Acta Socialización</a></li> 
+          <li ><a href="{{ route('actaConcertacion.index') }}">Acta Concertación</a> </li> 
           <li> <a href="{{ route('activar.index') }}">Activar acta</a>
           </ul>
         </li>

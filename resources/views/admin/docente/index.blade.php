@@ -6,7 +6,7 @@
 	<a href="{{ route('docente.create')}}" class="btn btn-success"> Ingresar un nuevo docente</a> 
 		{!! Form::open(['route' => 'docente.index', 'method'=>'GET','class'=>'navbar-form pull-right','aria-describedby'=>'search']) !!}
 			<div class="input-group">
-			{!! Form::text('name',null,['class'=>'form-control','placeholder'=>'buscar docente']) !!}
+				{!! Form::text('name',null,['class'=>'form-control','placeholder'=>'buscar docente']) !!}
 			<span class="input-group-addon" id="search"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
 			</div>
 		{!! Form::close() !!}

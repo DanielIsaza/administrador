@@ -53,7 +53,7 @@
 	</div>
 	<div class="form-group">
 		{!! Form::label('name','Número de grupos') !!}
-		{!! Form::text('numero',null,['class' => 'form-control','placeholder'=>'Número de los grupos separados por comas 1,2,4','required']) !!}
+		{!! Form::text('numero',null,['class' => 'form-control','placeholder'=>'Número de los grupos separados por comas, ejemplo: 1,2,4','required']) !!}
 	</div>
 	<div class="form-group">
 		{!! Form::submit('Ingresar',['class'=>'btn btn-primary']) !!}

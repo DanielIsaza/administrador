@@ -47,6 +47,22 @@ Route::group([''],function() {
 });
 
 Route::group([''],function() {
+	Route::resource('actaSocializacion','ActaSocializacionController');
+	Route::get('actaSocializacion/{id}/destroy',[
+		'uses' => 'ActaSocializacionController@destroy',
+		'as' => 'admin.actaSocializacion.destroy'
+		]);
+});
+
+Route::group([''],function() {
+	Route::resource('actaConcertacion','ActaConcertacionController');
+	Route::get('actaConcertacion/{id}/destroy',[
+		'uses' => 'ActaConcertacionController@destroy',
+		'as' => 'admin.actaConcertacion.destroy'
+		]);
+});
+
+Route::group([''],function() {
 	Route::resource('grupos','GrupoController');
 	Route::get('grupos/{id}/destroy',[
 		'uses' => 'GrupoController@destroy',
