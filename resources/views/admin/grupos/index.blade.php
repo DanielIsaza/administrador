@@ -42,7 +42,7 @@
 					$.each(data,function(key,element)
 					{
 						$("tBody[name=tabla]").append(
-							"<tr><td>"+ element +'</td><td><a href="/grupos/'+key+'/edit" class="btn btn-warning">'+"<span class='glyphicon glyphicon-edit'>Editar</span></a></td><td><a href="+"grupos/"+key+"/destroy"+" onClick='return confirm('¿Seguro?')' class='btn btn-danger'><span class='glyphicon glyphicon-edit'>Eliminar</span></a></td></tr>");
+							"<tr><td>"+ element +'</td><td><a href="/grupos/'+key+'/edit" class="btn btn-warning">'+"<span class='glyphicon glyphicon-edit'>Editar</span></a></td><td><a href="+"/grupos/"+key+"/destroy"+" onClick='return confirm('¿Seguro?')' class='btn btn-danger'><span class='glyphicon glyphicon-edit'>Eliminar</span></a></td></tr>");
 					});
 
 				});

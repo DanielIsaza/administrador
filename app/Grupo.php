@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Grupo extends Model
 {
     //
+    protected $primaryKey = 'idGrupo';
     protected $table = "grupo";
     protected $filleable = ['idGrupo','EspacioAcademico_idEspacioAcademico','Docente_idDocente','NumeroGrupo'];
     public $timestamps = false;

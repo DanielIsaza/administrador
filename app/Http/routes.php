@@ -11,7 +11,9 @@
 |
 */
 use Illuminate\Support\Facades\Input;
-
+/**
+Rutas que dirigen a la pagina de inicio
+*/
 Route::get('/', function () {
     return view('welcome');
 });
@@ -46,7 +48,7 @@ Route::group([''],function() {
 
 Route::group([''],function() {
 	Route::resource('grupos','GrupoController');
-	Route::get('GrupoController/{id}/destroy',[
+	Route::get('grupos/{id}/destroy',[
 		'uses' => 'GrupoController@destroy',
 		'as' => 'admin.grupos.destroy'
 		]);

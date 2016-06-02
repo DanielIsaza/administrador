@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
 use App\Grupo;
 use App\PlanEstudio;
 use App\Docente;
@@ -44,6 +43,25 @@ class GrupoController extends Controller
 
 	public function edit($id)
 	{
-		return view('admin.grupos.edit')->with('grupo',$grupo);
+		$grupo = Grupo::where('idGrupo',$id)->first();
+		$docentes = Docente::pluck('nombreDocente','idDocente');
+		$array = array('docentes' => $docentes, 'grupo'=>$grupo);
+		return view('admin.grupos.edit')->with('array',$array);
 	}
+
+	public function destroy($id)
+    {
+		$grupo = Grupo::where('idGrupo',$id);
+    	$grupo->delete();
+		return redirect()->route('grupos.index');
+    }
+
+    public function update(Request $request,$id)
+    {
+		$grupo = Grupo::where('idGrupo',$id)->first();
+        $grupo->NumeroGrupo = $request->numero;
+        $grupo->Docente_idDocente = $request->Docente_idDocente;
+        $grupo->save();
+        return redirect()->route('grupos.index');
+    }
 }
