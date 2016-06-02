@@ -34,10 +34,10 @@
 			});
 		});
 	</script>
-{!! Form::open(['route' => 'reporteEvaluacion.store','method' => 'POST']) !!}
+{!! Form::open(['route' => 'grupos.store','method' => 'POST']) !!}
 	<div class="form-group">
 		{!! Form::label('name','Plan de estudios') !!}
-		{!! Form::select('idPlanEstudios',$planes,null,['class'=> 'form-control','placeholder'=>'Seleccione una opción','required']) !!}
+		{!! Form::select('idPlanEstudios',$array['planes'],null,['class'=> 'form-control','placeholder'=>'Seleccione una opción','required']) !!}
 	</div>
 	<div class="form-group">
 		{!! Form::label('name','Semestre') !!}
@@ -46,6 +46,14 @@
 	<div class="form-group">
 		{!! Form::label('name','Espacio Académico') !!}
 		{!! Form::select('idEspacioAcademico',[""],null,['class'=> 'form-control','placeholder'=>'Seleccione una opción','required']) !!}
+	</div>
+	<div class="form-group">
+		{!! Form::label('name','Profesor') !!}
+		{!! Form::select('Docente_idDocente',$array['docentes'],null,['class'=> 'form-control','placeholder'=>'Seleccione una opción','required']) !!}
+	</div>
+	<div class="form-group">
+		{!! Form::label('name','Número de grupos') !!}
+		{!! Form::text('numero',null,['class' => 'form-control','placeholder'=>'Número de los grupos separados por comas 1,2,4','required']) !!}
 	</div>
 	<div class="form-group">
 		{!! Form::submit('Ingresar',['class'=>'btn btn-primary']) !!}

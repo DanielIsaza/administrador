@@ -1,6 +1,6 @@
 @extends('admin.main')
 
-@section('title','Reportes')
+@section('title','Reporte Completo')
 
 @section('content')
 	{!! Form::open(['route' => 'reporteCompleto.store','method' => 'POST']) !!}
