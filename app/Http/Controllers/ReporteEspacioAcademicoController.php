@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\PlanEstudio;
+use App\ReporteGrupo;
+use App\PeriodoAcademico;
 use App\Grupo;
 
 class ReporteEspacioAcademicoController extends Controller
@@ -23,17 +25,16 @@ class ReporteEspacioAcademicoController extends Controller
 	**/
 	public function store(Request $request)
 	{
-
-		$grupo = new Grupo();
-		$grupos = $grupo->buscarGrupos($_POST['secondChoice'],$actual);
-
+		$periodo = PeriodoAcademico::select('id')->get()->max('id');
+		$grupos = Grupo::where('EspacioAcademico_idEspacioAcademico',$request->idEspacioAcademico)->get();
+		
 		if(count($grupos)>0)	
 		{
 			$reporte = new ReporteGrupo();
-
+			$reporte->iniciar();
 			for($i=0;$i<count($grupos);$i++)
 			{
-				$reporte->generarReporte($grupos[$i]['pk'],$periodo);
+				$reporte->generarReporte($grupos[$i]['idGrupo'],$periodo);
 			}
 
 			$pdf = $reporte->getPDF();
@@ -43,9 +44,5 @@ class ReporteEspacioAcademicoController extends Controller
 				$reporte->descargar('Reporte_Por_Espacio_Academico');
 			}
 		}
-		$periodo = PeriodoAcademico::select('id')->get()->max('id');
-		$reporte = new ReporteGrupo();
-		$pdf = $reporte->generarReporte($request->idGrupo,$periodo);
-		$reporte->descargar('Reporte');
 	}
 }
