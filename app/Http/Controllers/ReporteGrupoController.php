@@ -8,8 +8,6 @@ use App\Http\Requests;
 use App\PlanEstudio;
 use App\ReporteGrupo;
 use App\PeriodoAcademico;
-use App\Pregunta;
-use App\Grupo;
 
 class ReporteGrupoController extends Controller
 {

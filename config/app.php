@@ -210,5 +210,4 @@ return [
         'Flash' => Laracasts\Flash\Flash::class,
         'Fpdf' => Anouar\Fpdf\Facades\Fpdf::class,
     ],
-
 ];
