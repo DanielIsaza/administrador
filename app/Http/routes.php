@@ -101,7 +101,7 @@ Route::get('lista', ['as'=>'lista', function(){
 */
 Route::get('grupo', ['as'=>'grupo', function(){
 	$id = Input::get('espacio');
-	$espacios = App\Grupo::where('EspacioAcademico_idEspacioAcademico',$id);
+	$espacios = App\Grupo::where('EspacioAcademico_idEspacioAcademico',$id)->orderBy('numeroGrupo','ASC');
 	return $espacios->lists('numeroGrupo', 'idGrupo');
 }]);
 

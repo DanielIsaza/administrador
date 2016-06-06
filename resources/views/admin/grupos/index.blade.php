@@ -64,6 +64,7 @@
 		{!! Form::label('name','Espacio Académico') !!}
 		{!! Form::select('idEspacioAcademico',[""],null,['class'=> 'form-control','placeholder'=>'Seleccione una opción','required']) !!}
 	</div>
+
 		<table class="table table-striped" id="tabla">
 			<thead>
 				<th>Número grupo</th>

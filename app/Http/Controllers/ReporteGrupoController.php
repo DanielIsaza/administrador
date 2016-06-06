@@ -5,15 +5,30 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\PlanEstudio;
+use App\ReporteGrupo;
+use App\PeriodoAcademico;
+use App\Pregunta;
+use App\Grupo;
 
 class ReporteGrupoController extends Controller
 {
+	/**
+	* metodo que retorna la vista con la informacion correspondiente
+	*/
     public function index()
 	{
-		return view('admin.reportes.grupo');
+		$planes = PlanEstudio::pluck('nombrePlanEstudio','idPlanEstudio');
+		return view('admin.reportes.grupo')->with('planes',$planes);
 	}
-	public function store()
+	/**
+	* metodo que genera el reporte por grupo
+	**/
+	public function store(Request $request)
 	{
-		
+        $periodo = PeriodoAcademico::select('id')->get()->max('id');
+		$reporte = new ReporteGrupo();
+		$pdf = $reporte->generarReporte($request->idGrupo,$periodo);
+		$reporte->descargar('Reporte');
 	}
 }
