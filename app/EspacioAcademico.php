@@ -23,6 +23,4 @@ class EspacioAcademico extends Model
     {
     	return $this->belongsTo('App\Semestre');
     }
-
-    
 }
