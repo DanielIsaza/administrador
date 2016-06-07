@@ -26,6 +26,7 @@ class ReporteGrupoController extends Controller
 	{
         $periodo = PeriodoAcademico::select('id')->get()->max('id');
 		$reporte = new ReporteGrupo();
+		$reporte->iniciar();
 		$pdf = $reporte->generarReporte($request->idGrupo,$periodo);
 		$reporte->descargar('Reporte');
 	}

@@ -20,7 +20,6 @@
             <li><a href="{{ route('reporteEspacio.index') }}">Reporte por espacio acad&eacute;mico</a></li>
             <li><a href="{{ route('reporteGrupo.index') }}">Reporte por grupo</a></li>
             <li><a href="{{ route('reporteProfesor.index') }}">Reporte por profesor</a></li>
-            <li><a href="{{ route('reportePeriodo.index') }}">Reporte por periodo acad&eacute;mico</a></li>
             <li><a href="{{ route('reporteEvaluacion.index') }}">Reporte de evaluaci&oacute;n de desempeño</a></li>
           </ul>
         </li>
