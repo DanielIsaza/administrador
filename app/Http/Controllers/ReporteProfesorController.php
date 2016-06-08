@@ -13,7 +13,7 @@ class ReporteProfesorController extends Controller
 {
     public function index()
 	{
-		$docentes = Docente::pluck('nombreDocente','idDocente');
+		$docentes = Docente::orderBy('nombreDocente','ASC')->pluck('nombreDocente','idDocente');
 		return view('admin.reportes.profesor')->with('docentes',$docentes);
 	}
 

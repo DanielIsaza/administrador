@@ -6,11 +6,6 @@
 	{!! Form::open(['route' => 'planEstudios.store','method' => 'POST']) !!}
 
 	<div class="form-group">
-		{!! Form::label('name','Identificador') !!}
-		{!! Form::text('idPlanEstudio',null,['class' => 'form-control','placeholder'=>'Identificador',null]) !!}
-	</div>
-
-	<div class="form-group">
 		{!! Form::label('name','Nombre') !!}
 		{!! Form::text('nombrePlanEstudio',null,['class' => 'form-control','placeholder'=>'Nombre','required']) !!}
 	</div>

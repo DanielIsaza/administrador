@@ -23,7 +23,9 @@ class PeriodoAcademicoController extends Controller
     public function store(Request $request)
     {
     	$periodo = new PeriodoAcademico();
-    	$periodo->id = $request->id;
+        $num = PeriodoAcademico::orderBy('id')->max('id');
+        $num++;
+    	$periodo->id = $num;
     	$periodo->periodo = $request->periodo;
     	$periodo->save();
 
@@ -34,7 +36,6 @@ class PeriodoAcademicoController extends Controller
     {
     	$periodo = PeriodoAcademico::where('id',$id)->first();
     	$periodo->delete();
-    	//Flash::error('Se elimino papu');
     	return redirect()->route('periodoAcademico.index');
     }
 
@@ -47,7 +48,7 @@ class PeriodoAcademicoController extends Controller
     public function update(Request $request, $id)
     {
     	$periodo = PeriodoAcademico::find($id);
-    	$periodo->id = $request->id;
+    	$periodo->id = $id;
     	$periodo->periodo = $request->periodo;
     	$periodo->save();
     	return redirect()->route('periodoAcademico.index');

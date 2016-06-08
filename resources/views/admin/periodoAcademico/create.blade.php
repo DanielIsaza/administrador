@@ -6,11 +6,6 @@
 	{!! Form::open(['route' => 'periodoAcademico.store','method' => 'POST']) !!}
 
 	<div class="form-group">
-		{!! Form::label('name','Identificador') !!}
-		{!! Form::text('id',null,['class' => 'form-control','placeholder'=>'Identificador',null]) !!}
-	</div>
-
-	<div class="form-group">
 		{!! Form::label('name','Nombre periodo academico') !!}
 		{!! Form::text('periodo',null,['class' => 'form-control','placeholder'=>'Nombre','required']) !!}
 	</div>

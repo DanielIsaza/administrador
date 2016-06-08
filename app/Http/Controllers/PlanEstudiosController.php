@@ -25,7 +25,9 @@ class PlanEstudiosController extends Controller
     public function store(Request $request)
     {
     	$planEstudio = new PlanEstudio();
-        $planEstudio->idPlanEstudio = $request->idPlanEstudio;
+        $num = PlanEstudio::orderBy('idPlanEstudio')->max('idPlanEstudio');
+        $num++;
+        $planEstudio->idPlanEstudio = $num;
         $planEstudio->nombrePlanEstudio = $request->nombrePlanEstudio;
         $planEstudio->Programa_idPrograma = $request->Programa_idPrograma;
     	$planEstudio->save();
@@ -36,7 +38,6 @@ class PlanEstudiosController extends Controller
     {
     	$planEstudio = PlanEstudio::where('idPlanEstudio',$idPlanEstudio)->first();
     	$planEstudio->delete();
-    	//Flash::error('Se elimino papu');
     	return redirect()->route('planEstudios.index');
     }
 
@@ -49,8 +50,7 @@ class PlanEstudiosController extends Controller
     public function update(Request $request, $id)
     {
     	$planEstudio = PlanEstudio::find($id);
-    	//$planEstudio->fill($request->all());
-        $planEstudio->idPlanEstudio = $request->idPlanEstudio;
+        $planEstudio->idPlanEstudio = $id;
         $planEstudio->nombrePlanEstudio = $request->nombrePlanEstudio;
     	$planEstudio->save();
 
