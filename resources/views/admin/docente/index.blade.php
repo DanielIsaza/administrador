@@ -13,9 +13,9 @@
 	<hr>
 	<table class="table table-striped">
 		<thead>
-			<th>Cedula</th>
+			<th>C&eacute;dula</th>
 			<th>Nombre</th>
-			<th>Correo electronico</th>
+			<th>Correo electr&oacute;nico</th>
 			<th>Acci&oacute;n</th>
 		</thead>
 		<tbody>

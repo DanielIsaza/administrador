@@ -9,13 +9,14 @@
     </a>
       <ul class="nav navbar-nav">
         <li ><a href="{{ route('planEstudios.index') }}"> Plan de estudios</a> </li>
-        <li ><a href="{{ route('periodoAcademico.index') }}"> Periodo Academico</a> </li>      
-        <li ><a href="{{ route('espaciosAcademicos.index') }}"> Espacios Academicos</a> </li>
+        <li ><a href="{{ route('periodoAcademico.index') }}"> Periodo Acad&eacute;mico</a> </li>      
+        <li ><a href="{{ route('espaciosAcademicos.index') }}"> Espacios Acad&eacute;micos</a> </li>
         <li ><a href="{{ route('docente.index') }}"> Docentes</a> </li>
         <li ><a href="{{ route('grupos.index') }}"> Grupos</a> </li>      
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reportes <span class="caret"></span></a>
           <ul class="dropdown-menu">
+            <li><a href="{{route('reportePeriodo.index')}}">Reporte por periodo</a></li>
             <li><a href="{{ route('reporteCompleto.index') }}">Reporte Completo</a></li>
             <li><a href="{{ route('reporteEspacio.index') }}">Reporte por espacio acad&eacute;mico</a></li>
             <li><a href="{{ route('reporteGrupo.index') }}">Reporte por grupo</a></li>

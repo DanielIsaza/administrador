@@ -1,14 +1,14 @@
 @extends('admin.main')
 
-@section('title','Lista de periodos academicos')
+@section('title','Lista de periodos acad&eacute;micos')
 
 @section('content')
 
-<a href="{{ route('periodoAcademico.create')}}" class="btn btn-success"> Ingresar un periodo academico</a> <br>
+<a href="{{ route('periodoAcademico.create')}}" class="btn btn-success"> Ingresar un periodo acad&eacute;mico</a> <br>
 <table class="table table-striped">
 		<thead>
 			<th>Identificador</th>
-			<th>Nombre periodo academico</th>
+			<th>Nombre periodo acad&eacute;mico</th>
 			<th>Acci&oacute;n</th>
 		</thead>
 		<tbody>

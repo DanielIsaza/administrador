@@ -7,8 +7,8 @@
 	{!! Form::open(['route' => 'docente.store','method' => 'POST']) !!}
 
 	<div class="form-group">
-		{!! Form::label('name','Cedula') !!}
-		{!! Form::text('cedulaDocente',null,['class' => 'form-control','placeholder'=>'Cedula','required']) !!}
+		{!! Form::label('name','C&eacute;dula') !!}
+		{!! Form::text('cedulaDocente',null,['class' => 'form-control','placeholder'=>'Cedula']) !!}
 	</div>
 
 	<div class="form-group">
@@ -17,12 +17,12 @@
 	</div>
 
 	<div class="form-group">
-		{!! Form::label('name','Correo electronico') !!}
-		{!! Form::text('correoElectronico',null,['class' => 'form-control','placeholder'=>'Correo','required']) !!}
+		{!! Form::label('name','Correo electr&oacute;nico') !!}
+		{!! Form::text('correoElectronico',null,['class' => 'form-control','placeholder'=>'Correo']) !!}
 	</div>
 
 	<div class="form-group">
-		{!! Form::label('name','Programa academico') !!}
+		{!! Form::label('name','Programa acad&eacute;mico') !!}
 		{!! Form::select('Programa_idPrograma',$programa,null,['class'=> 'form-control','placeholder'=>'Seleccione una opción','required']) !!}
 	</div>
 
