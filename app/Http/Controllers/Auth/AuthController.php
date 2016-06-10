@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use Auth;
+use Illuminate\Http\Request;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -10,9 +12,10 @@ use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
 class AuthController extends Controller
 {
-    protected $redirectPath = '/admin';
-    protected $loginPath = '/admin/auth/login';
+    protected $redirectPath = '/home';
+    protected $loginPath = '/auth/login';
     protected $username = 'login';
+    protected $redirectTo = '/';
     /*
     |--------------------------------------------------------------------------
     | Registration & Login Controller
@@ -31,8 +34,6 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
-
     /**
      * Create a new authentication controller instance.
      *
@@ -56,22 +57,38 @@ class AuthController extends Controller
             'password' => 'required'
         ]);
     }
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return User
-     */
-    protected function create(array $data)
+
+    protected function postLogin(Request $request)
     {
-        return User::create([
-            'login' => $data['login'],
-            'password' => $data['password']
-        ]);
+        $user = User::where('login',$request->login)->where('password',$request->password)->get();
+        if(count($user) > 0)
+        {
+            // Authentication passed...
+            return redirect('/home');
+        }
+        else
+        {
+            return redirect('/');
+        }
+    }
+    /**
+    * metodo que permite la autenticacion de un usuario
+    */
+    protected function authenticate()
+    {
+        if (Auth::attempt(['login' => $login, 'password' => $password])) {
+            // Authentication passed...
+            return redirect()->intended('welcome');
+        }
     }
 
+    protected function Login()
+    {
+        $user = Auth::user();
+    }
+    
     protected function getLogin()
     {
-        return view('admin.auth.login');
+        return view('welcome');
     }
 }

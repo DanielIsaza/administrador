@@ -7,7 +7,7 @@
         <img style="width: 40px; height: 40px; margin-top: -7px;"
              src="{{ asset('img/logo.jpg') }}" >
     </a>
-      <ul class="nav navbar-nav">
+        <ul class="nav navbar-nav">
         <li ><a href="{{ route('planEstudios.index') }}"> Plan de estudios</a> </li>
         <li ><a href="{{ route('periodoAcademico.index') }}"> Periodo Acad&eacute;mico</a> </li>      
         <li ><a href="{{ route('espaciosAcademicos.index') }}"> Espacios Acad&eacute;micos</a> </li>
@@ -38,7 +38,7 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Salir</a></li>
+            <li><a href="{{ route('admin.auth.logout') }}">Salir</a></li>
           </ul>
         </li>
       </ul>

@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Input;
 Rutas que dirigen a la pagina de inicio
 */
 Route::get('/', function () {
-    return view('welcome');
+    return view('admin.auth.login');
 });
 /**
 * Ruta que dirige a la pagina de inicio 
@@ -134,11 +134,12 @@ Route::get('grupo', ['as'=>'grupo', function(){
 		$query->whereNull('idActaConcertacion')->orWhere('periodoAcademico_idPeriodo',$periodo);})->orderBy('numeroGrupo','ASC');
 	return $espacios->lists('numeroGrupo', 'idGrupo');
 }]);
+
 /**
 * Rutas que representan el acceso a las funciones definidas 
 * para el controlador que controla el ingreso de usuarios
 */
-Route::get('admin/auth/login',[
+Route::get('/auth/login',[
 	'uses' => 'Auth\AuthController@getLogin',
 	'as' => 'admin.auth.login'
 	]);
@@ -147,7 +148,7 @@ Route::get('admin/auth/login',[
 * para el controlador que define las fuciones a realizar despues
 * de que un usuario ingrese
 */
-Route::post('admin/auth/login',[
+Route::post('/auth/login',[
 	'uses' => 'Auth\AuthController@postLogin',
 	'as' => 'admin.auth.login'
 	]);
@@ -156,7 +157,7 @@ Route::post('admin/auth/login',[
 * para el controlador que define las funciones a realizar 
 * cuando un usuario cierre la sesion en la aplicacion 
 */
-Route::get('admin/auth/logout',[
+Route::get('/auth/logout',[
 	'uses'=>'Auth\AuthController@getLogout',
 	'as'=> 'admin.auth.logout'
 ]);
